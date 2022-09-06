@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notices_app/pages/tabs_page1.dart';
+import 'package:notices_app/pages/tabs_page2.dart';
 import 'package:notices_app/providers/providerNavegacion.dart';
 import 'package:provider/provider.dart';
 
@@ -10,9 +11,11 @@ class TabsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => NavegacionModel(),
-      child: Scaffold(
-        body: _pages(),
-        bottomNavigationBar: _navigation(),
+      child: SafeArea(
+        child: Scaffold(
+          body: _pages(),
+          bottomNavigationBar: _navigation(),
+        ),
       ),
     );
   }
@@ -45,12 +48,7 @@ class _pages extends StatelessWidget {
     return PageView(
       physics: const NeverScrollableScrollPhysics(),
       controller: provider.pageControl,
-      children: <Widget>[
-        const Tabs1Page(),
-        Container(
-          color: Colors.green,
-        )
-      ],
+      children: <Widget>[const Tabs1Page(), const Tabs2Page()],
     );
   }
 }

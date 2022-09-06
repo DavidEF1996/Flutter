@@ -15,10 +15,10 @@ class _Tabs1PageState extends State<Tabs1Page>
   @override
   Widget build(BuildContext context) {
     final newsService = Provider.of<NewsServices>(context).headlines;
-
+    Axis scrollDirection = Axis.vertical;
     return Scaffold(
         body: (newsService.isNotEmpty)
-            ? ListaNoticias(newsService)
+            ? ListaNoticias(newsService, scrollDirection)
             : const Center(child: CircularProgressIndicator()));
   }
 
