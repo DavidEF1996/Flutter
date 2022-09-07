@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notices_app/pages/tabs_page.dart';
+import 'package:notices_app/services/favoritos.dart';
 import 'package:notices_app/services/news_service.dart';
 import 'package:notices_app/theme/theme.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => NewsServices(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Favoritos(),
         )
       ],
       child: MaterialApp(
