@@ -11,6 +11,9 @@ class Tabs2Page extends StatelessWidget {
   Widget build(BuildContext context) {
     Axis scrollDirection = Axis.vertical;
     final newsProv = Provider.of<NewsServices>(context);
+
+    ScrollController controller = ScrollController();
+
     return Scaffold(
       body: Column(children: [
         Container(
